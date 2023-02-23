@@ -24,6 +24,11 @@ imputar_valores <-function(dataset,especificacion,not_remove = NULL, guess_if_na
 
   print("#################################################################")
   print("################Iniciando imputacion#############################")
+  not_remove <- c(
+    not_remove,
+    especificacion %>% dplyr::filter(.data$accion != "remover") %>% pull(.data$variable)
+  ) %>% 
+    unique()
   tabla_resumen <- resumir_variables(dataset) %>%
     left_join(
       especificacion %>% select(.data$variable,.data$default)
@@ -36,7 +41,7 @@ imputar_valores <-function(dataset,especificacion,not_remove = NULL, guess_if_na
         as.character(.data$accion)
 
       )
-    )
+    ) 
 
 
 
