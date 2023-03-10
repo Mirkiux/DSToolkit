@@ -16,9 +16,6 @@ modelo_logit(
 \arguments{
 \item{titulo}{}
 }
-\value{
-
-}
 \description{
 Modelo Logit Function
 }

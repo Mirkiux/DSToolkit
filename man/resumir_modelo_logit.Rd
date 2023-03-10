@@ -9,9 +9,6 @@ resumir_modelo_logit(logit, nombre_modelo)
 \arguments{
 \item{nombre_modelo}{}
 }
-\value{
-
-}
 \description{
 Resumir modelo logit Function
 }

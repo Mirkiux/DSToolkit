@@ -9,9 +9,6 @@ remove_missing_variables(dataset, not_remove = NULL, threshold = 0.9)
 \arguments{
 \item{threshold}{}
 }
-\value{
-
-}
 \description{
 Remove missing variables Function
 }

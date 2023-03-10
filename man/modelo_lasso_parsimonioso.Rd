@@ -15,9 +15,6 @@ modelo_lasso_parsimonioso(
 \arguments{
 \item{titulo}{}
 }
-\value{
-
-}
 \description{
 Modelo lasso parsimonioso Function
 }

@@ -9,9 +9,6 @@ try_character_to_numeric(dataset, not_numeric = NULL)
 \arguments{
 \item{not_numeric}{}
 }
-\value{
-
-}
 \description{
 Try character to numeric Function
 }

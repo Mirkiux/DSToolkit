@@ -15,9 +15,6 @@ getPicturesAttrition(
 \arguments{
 \item{nameFileRaw}{}
 }
-\value{
-
-}
 \description{
 getPicturesAttrition Function
 }

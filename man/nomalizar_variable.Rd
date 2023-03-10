@@ -9,9 +9,6 @@ nomalizar_variable(variable_vector, critical_value = 1.96)
 \arguments{
 \item{critical_value}{}
 }
-\value{
-
-}
 \description{
 Nomalizar variable Function
 }

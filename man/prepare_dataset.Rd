@@ -9,9 +9,6 @@ prepare_dataset(dataset, not_numeric = NULL, not_factor = NULL)
 \arguments{
 \item{not_factor}{}
 }
-\value{
-
-}
 \description{
 Prepare dataset Function
 }

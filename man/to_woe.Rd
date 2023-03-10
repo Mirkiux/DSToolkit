@@ -9,9 +9,6 @@ to_woe(dataset, variable, varobj = "RESULTADO", bin_num_limit = 8)
 \arguments{
 \item{bin_num_limit}{}
 }
-\value{
-
-}
 \description{
 To_woe Function
 }

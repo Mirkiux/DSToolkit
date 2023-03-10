@@ -17,9 +17,6 @@ prediccion_arbol(
 \arguments{
 \item{id_variables}{}
 }
-\value{
-
-}
 \description{
 Prediccion Arbol Function
 }

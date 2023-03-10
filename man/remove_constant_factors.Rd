@@ -9,9 +9,6 @@ remove_constant_factors(dataset, default_dummy = 0)
 \arguments{
 \item{default_dummy}{}
 }
-\value{
-
-}
 \description{
 Remove constant factor Function
 }

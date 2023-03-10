@@ -9,9 +9,6 @@ to_z_score(variable_vector)
 \arguments{
 \item{variable_vector}{}
 }
-\value{
-
-}
 \description{
 to_z_score Function
 }

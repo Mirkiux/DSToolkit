@@ -11,9 +11,6 @@ try_to_numeric(x, not_numeric = NULL)
 
 \item{not_numeric}{List of excepted variable}
 }
-\value{
-
-}
 \description{
 Title
 }
