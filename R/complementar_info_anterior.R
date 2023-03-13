@@ -58,9 +58,17 @@ complementar_info_anterior <- function(
 
   dataset_adicional_listo <- dataset_original %>%
     left_join(dataset_adicional_listo, by = id_cols, suffix = c("",".y")) %>%
+
+  if(!("flag_auto_completado" %in% names(dataset_adicional_listo))){
+
+    dataset_adicional_listo <- dataset_adicional_listo %>%
     mutate(
-      flag_auto_completado = 0
+      flag_auto_completado = 0,
+      lista_campos_autocompletados = ""
     )
+
+  }
+
 
 
   for (col in cols_to_complete){
@@ -75,6 +83,13 @@ complementar_info_anterior <- function(
         1,
         dataset_adicional_listo[["flag_auto_completado"]]
       )
+
+      dataset_adicional_listo[["lista_campos_autocompletados"]] <- ifelse(
+        !(is.na(dataset_adicional_listo[[col_adicional]])) & is.na(dataset_adicional_listo[[col]]),
+        paste(dataset_adicional_listo[["lista_campos_autocompletados"]],col_adicional,sep=","),
+        dataset_adicional_listo[["lista_campos_autocompletados"]]
+      )
+
 
     }
 
