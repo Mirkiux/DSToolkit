@@ -67,9 +67,6 @@ complementar_info_anterior <- function(
 
     col_adicional <- paste0(col,".y")
 
-    dataset_adicional_listo[[col]] <- coalesce(
-      dataset_adicional_listo[[col]],
-      dataset_adicional_listo[[col_adicional]])
 
     if (length(dataset_adicional_listo[[col_adicional]]) > 0 ) {
 
@@ -80,6 +77,10 @@ complementar_info_anterior <- function(
       )
 
     }
+
+    dataset_adicional_listo[[col]] <- coalesce(
+      dataset_adicional_listo[[col]],
+      dataset_adicional_listo[[col_adicional]])
 
   }
 

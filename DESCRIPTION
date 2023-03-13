@@ -1,7 +1,7 @@
 Package: DSToolkit
 Type: Package
 Title: Toolkit to perform Data Science tasks
-Version: 0.2.1
+Version: 0.2.2
 Author: Mirko Daga
 Maintainer: Mirko Daga <mirko.daga.21@gmail.com>
 Description: Toolkit to perform several repetitive tasks in data science
