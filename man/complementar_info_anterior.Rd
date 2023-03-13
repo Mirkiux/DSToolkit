@@ -13,14 +13,6 @@ complementar_info_anterior(
 )
 }
 \arguments{
-\item{dataset_original}{}
-
-\item{dataset_adicional}{}
-
-\item{cols_to_complete}{}
-
-\item{id_cols}{}
-
 \item{ordering_col}{}
 }
 \description{
