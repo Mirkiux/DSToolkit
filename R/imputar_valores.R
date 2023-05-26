@@ -27,7 +27,7 @@ imputar_valores <-function(dataset,especificacion,not_remove = NULL, guess_if_na
   not_remove <- c(
     not_remove,
     especificacion %>% dplyr::filter(.data$accion != "remover") %>% pull(.data$variable)
-  ) %>% 
+  ) %>%
     unique()
   tabla_resumen <- resumir_variables(dataset) %>%
     left_join(
@@ -41,7 +41,7 @@ imputar_valores <-function(dataset,especificacion,not_remove = NULL, guess_if_na
         as.character(.data$accion)
 
       )
-    ) 
+    )
 
 
 
@@ -51,26 +51,28 @@ imputar_valores <-function(dataset,especificacion,not_remove = NULL, guess_if_na
     tabla_resumen <- tabla_resumen %>%
       mutate(
 
-        default = if_else(
-          is.na(.data$default),
-          if_else(
-            .data$tipo == "numeric" | .data$tipo == "integer",
-            "0",
-            "SIN_DATO"
-          ),
-          as.character(.data$default)
+        default = coalesce(
+          as.character(.data$default),
+          case_when(
+            .data$tipo %in% c("numeric","integer") ~ "0",
+            .data$tipo %in% c("character","text") ~ "SIN_DATO",
+            TRUE ~ .data$default
+          )
         )
 
       )
 
   }
-  print("subseting")
-  variables_imputar <- tabla_resumen[tabla_resumen$accion == "imputar", ] %>%
+
+  #print("subseting")
+  tabla_imputar_final <- tabla_resumen %>% filter(accion == "imputar" & !is.na(default) )
+  variables_imputar <- tabla_imputar_final %>%
     pull("variable")
-  valores_imputar <- tabla_resumen[tabla_resumen$accion == "imputar",] %>%
+  valores_imputar <- tabla_imputar_final %>%
     pull("default") %>%
     as.character()
-  print("subseted")
+
+  #print("subseted")
 
   for ( i in 1:length(variables_imputar)){
 
@@ -85,10 +87,11 @@ imputar_valores <-function(dataset,especificacion,not_remove = NULL, guess_if_na
         intento_numerico,
         as.numeric(dataset[,variables_imputar[i]])
       )
+
     }
     else{
 
-      if(tolower(valores_imputar[i]) == "dist"){
+      if(coalesce(tolower(valores_imputar[i]),"") == "dist"){
 
         nombre_variable <- variables_imputar[i]
         population <-  dataset[
@@ -128,11 +131,26 @@ imputar_valores <-function(dataset,especificacion,not_remove = NULL, guess_if_na
       }
       else{
 
-        dataset[,variables_imputar[i]] <- if_else(
-          is.na(dataset[,variables_imputar[i]]),
-          valores_imputar[i],
-          as.character(dataset[,variables_imputar[i]])
-        )
+        if (class(variables_imputar[i]) %in% c("Date")){
+
+          dataset[,variables_imputar[i]] <- coalesce(
+            as.Date(dataset[,variables_imputar[i]]),
+            as.Date(valores_imputar[i])
+          )
+
+        }
+        else {
+
+          dataset[,variables_imputar[i]] <- if_else(
+            is.na(dataset[,variables_imputar[i]]),
+            valores_imputar[i],
+            as.character(dataset[,variables_imputar[i]])
+          )
+
+
+        }
+
+
 
       }
 
