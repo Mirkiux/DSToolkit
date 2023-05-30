@@ -2,18 +2,15 @@
 % Please edit documentation in R/gbpct.R
 \name{gbpct}
 \alias{gbpct}
-\title{gbpct Function}
+\title{gbpct function}
 \usage{
 gbpct(x, y)
 }
 \arguments{
-\item{x}{independent variable(vector)}
+\item{x}{x independent variable(vector)}
 
-\item{y}{dependent variable(vector)}
-}
-\value{
-otb
+\item{y}{y dependent variable(vector)}
 }
 \description{
-gbpct Function
+gbpct function
 }

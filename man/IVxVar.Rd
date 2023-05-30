@@ -7,14 +7,11 @@
 IVxVar(Btrain, varNames, varResponse = "RESULTADO")
 }
 \arguments{
-\item{Btrain}{Train DataSet}
+\item{Btrain}{train DataSet}
 
 \item{varNames}{Variable Names from Train Dataset}
 
 \item{varResponse}{Variable Names}
-}
-\value{
-IV
 }
 \description{
 IVxVar Function

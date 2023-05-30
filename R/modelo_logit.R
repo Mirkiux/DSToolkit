@@ -18,6 +18,8 @@
 #' @importFrom pROC ggroc
 #' @importFrom stats glm
 #' @importFrom stats binomial
+#' @importFrom stringr str_split
+#'
 #'
 #' @return
 #' @export
@@ -26,6 +28,9 @@
 modelo_logit <- function(dataset,covariables,target_variable = "RESULTADO", woe = FALSE, graficar = TRUE, titulo = "modelo logit"){
 
   covariables_sin_interacciones <- covariables[!str_detect(covariables,"[*]")]
+  covariable_interacciones <- covariables[str_detect(covariables,"[*]")] %>% str_split("[*]")  %>% unlist()
+
+  covariables_sin_interacciones <- unique(c(covariables_sin_interacciones,covariable_interacciones))
   dataset <- prepare_dataset(dataset[,c(target_variable,covariables_sin_interacciones)])
 
   if(woe){

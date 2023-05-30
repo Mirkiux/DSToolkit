@@ -1,9 +1,10 @@
-#' gbpct Function
+#' gbpct function
 #'
-#' @param x independent variable(vector)
-#' @param y dependent variable(vector)
+#' @param x x independent variable(vector)
+#' @param y y dependent variable(vector)
 #'
-#' @return otb
+#' @return
+#' @export
 #'
 #' @examples
 gbpct <- function(x, y){

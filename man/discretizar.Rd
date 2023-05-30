@@ -2,7 +2,7 @@
 % Please edit documentation in R/discretizar.R
 \name{discretizar}
 \alias{discretizar}
-\title{Discretizar Function}
+\title{discretizar function}
 \usage{
 discretizar(
   vector_valores,
@@ -11,15 +11,8 @@ discretizar(
 )
 }
 \arguments{
-\item{vector_valores}{Original Variable/vector}
-
-\item{puntos_corte}{Default = c(-Inf,2,10,30,Inf)}
-
-\item{etiquetas}{Default = c("unpredictive","weak","medium","strong")}
-}
-\value{
-vector_clasificacion
+\item{etiquetas}{}
 }
 \description{
-Discretizar Function
+discretizar function
 }

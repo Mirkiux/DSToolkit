@@ -1,6 +1,6 @@
 #' IVxVar Function
 #'
-#' @param Btrain Train DataSet
+#' @param Btrain  train DataSet
 #' @param varNames Variable Names from Train Dataset
 #' @param varResponse Variable Names
 #'
@@ -11,7 +11,8 @@
 #' @importFrom ROCR performance
 #' @importFrom stats predict
 #'
-#' @return IV
+#' @return
+#' @export
 #'
 #' @examples
 IVxVar<-function(Btrain,varNames,varResponse = "RESULTADO"){

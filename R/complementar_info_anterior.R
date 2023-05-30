@@ -6,6 +6,10 @@
 #' @param id_cols
 #' @param ordering_col
 #'
+#' @importFrom magrittr %>%
+#' @importFrom dplyr select
+#' @importFrom dplyr if_else
+#'
 #' @return
 #' @export
 #'

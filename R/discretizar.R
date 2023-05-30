@@ -1,10 +1,11 @@
-#' Discretizar Function
+#' discretizar function
 #'
-#' @param vector_valores Original Variable/vector
-#' @param puntos_corte Default = c(-Inf,2,10,30,Inf)
-#' @param etiquetas Default = c("unpredictive","weak","medium","strong")
+#' @param vector_valores
+#' @param puntos_corte
+#' @param etiquetas
 #'
-#' @return vector_clasificacion
+#' @return
+#' @export
 #'
 #' @examples
 discretizar <- function(vector_valores,puntos_corte = c(-Inf,2,10,30,Inf), etiquetas = c("unpredictive","weak","medium","strong")){
