@@ -177,24 +177,37 @@ analizar_bivariados <-function(data,variable, var_obj = "RESULTADO", default_lev
         data = data,
         ggplot2::aes(
           x = variable_discretizada,
-          y=..count../sum(..count..),
-          #y= stat(count)/sum(stat(count)),
+          y = ..count../sum(..count..),
           fill = factor(RESULTADO)
-        )
-      ) +
-      ggplot2::xlab(
-        variable
+        ),
+        stat = "count"
       ) +
       ggplot2::geom_line(
         data = resumen,
         ggplot2::aes(x = variable_discretizada, y = porc_exitos, group = grupo),
-        stat="identity"
+        color = "blue",
+        linetype = "dashed",
+        size = 1
       ) +
       ggplot2::geom_text(
         data = resumen,
-        ggplot2::aes(x = variable_discretizada, y = porc_exitos, label = porc_exitos_label)
+        ggplot2::aes(x = variable_discretizada, y = porc_exitos, label = porc_exitos_label),
+        vjust = -0.5,
+        size = 5.5
       ) +
-      ggplot2::geom_abline(slope = 0, intercept = mean(data$RESULTADO,na.rm =TRUE))
+      ggplot2::geom_abline(slope = 0, intercept = mean(data$RESULTADO, na.rm = TRUE), color = "red") +
+      ggplot2::xlab("Groups") +
+      ggplot2::ylab("Proportion") +
+      ggplot2::ggtitle("Proportion of Success by Variable") +
+      ggplot2::theme_minimal() +
+      ggplot2::theme(
+        axis.text.x = ggplot2::element_text(angle = 45, hjust = 1),  # Rotate x-axis labels by 90 degrees
+        axis.text = ggplot2::element_text(size = 10),
+        axis.title = ggplot2::element_text(size = 12),
+        plot.title = ggplot2::element_text(size = 14, face = "bold")
+      ) +
+      ggplot2::scale_fill_manual(values = c("sandybrown", "#66CDAA"))+
+      ggplot2::labs(fill = "Resultado")
 
 
     results[["plot"]] <- plot
